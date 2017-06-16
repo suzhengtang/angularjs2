@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.js"></script>
+    <script>
+
+            //1.创建模块
+            var app =  angular.module('app',[]);
+            //2.创建控制器
+            app.controller('xmgController',['$scope','$http',function ($scope,$http) {
+                $http({
+                    url:'myDouban.php',
+                }).success(function (res) {
+                    console.log(res);
+                })
+            }]);
+            //3.绑定模块
+            //4.绑定控制器
+
+    </script>
+</head>
+<body ng-app="app" ng-controller="xmgController">
+
+</body>
+</html>

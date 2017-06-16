@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('get','text.php',true);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState == 4 && xhr.status ==200){
+                document.querySelector('.box').innerHTML = xhr.responseText;
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域</title>
+    <script src="angular.js"></script>
+    <script>
+        //创建模块
+        var app = angular.module('app',[]);
+        //创建控制器
+        app.controller('xmgController',['$scope',function ($scope) {
+
+        }]);
+        //绑定模块
+        //绑定控制器
+
+        function text(args) {
+            alert('我是跨域的网络请求'+args);
+        }
+    </script>
+    <script src="myjsonp.php?callback=text"></script>
+</head>
+<body ng-app="app" ng-controller="xmgController">
+
+</body>
+</html>

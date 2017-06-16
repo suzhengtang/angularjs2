@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.js"></script>
+    <script>
+
+            //1.创建模块
+            var app =  angular.module('app',[]);
+            //2.创建控制器
+            app.controller('xmgController',['$scope','$http',function ($scope,$http) {
+                /*凡是在控制器当中，想要把数据展示到视图当中，,把数据绑定到$scope身上即可*/
+                $http({
+                    url:'get.php',  //1.问谁要数据
+                    method:'get',    //2.以何种方式去要数据（get->明着要数据/post（暗着要数据））
+                    params:{
+                        money:101
+                    }
+                }).success(function (res) {  //3.要到了数据，把数据给你啦
+
+                    console.log(res);
+                    $scope.res = res;
+
+                }).error(function (error) { //4.没有数据，发生错误。
+                    console.log(error);
+                });
+
+            }]);
+            //3.绑定模块
+            //4.绑定控制器
+
+    </script>
+</head>
+<body ng-app="app" ng-controller="xmgController">
+    <p>{{res}}</p>
+</body>
+</html>

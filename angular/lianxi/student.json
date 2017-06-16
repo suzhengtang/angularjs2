@@ -1,0 +1,31 @@
+[
+	{
+		"name": "张三",
+		"photo": "./images/zs.jpg",
+		"address": "张三家",
+		"age": 19,
+		"sex": "男"
+	},
+	{
+		"name": "李四",
+		"photo": "./images/ls.jpg",
+		"address": "李四家",
+		"age": 20,
+		"sex": "男"
+	},
+	{
+		"name": "王五",
+		"photo": "./images/ww.jpg",
+		"address": "王五家很远",
+		"age": 18,
+		"sex": "男"
+	},
+	{
+		"name": "赵六",
+		"photo": "./images/zl.jpg",
+		"address": "在老王隔壁",
+		"age": 20,
+		"sex": "男"
+	}
+
+]

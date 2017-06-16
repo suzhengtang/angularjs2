@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.js"></script>
+    <script>
+
+            //1.创建模块
+            var app =  angular.module('app',[]);
+            //2.创建控制器
+            app.controller('xmgController',['$scope','$http',function ($scope,$http) {
+                /*凡是在控制器当中，想要把数据展示到视图当中，,把数据绑定到$scope身上即可*/
+                $http({
+                    url:'post.php',  //1.问谁要数据
+                    method:'post',    //2.以何种方式去要数据（get->明着要数据/post（暗着要数据））
+                    headers:{'Content-Type':'application/x-www-form-urlencoded'}, //post必须得要设置请求头。
+                             //当设置请求头时，以formData形式进行传递。key:value
+                             //默认情况不是 是json  以php为例使用post是收不到json  post只能收到formData
+                             //所以我们在传输时，要设置请求头。
+
+                    data:'money=99'
+                    /*内部传输机制：
+                    * SOAP : 传统形式 对象
+                    * RESFUL：现代形式 json
+                    * */
+
+
+                }).success(function (res) {  //3.要到了数据，把数据给你啦
+
+                    console.log(res);
+                    $scope.res = res;
+
+                }).error(function (error) { //4.没有数据，发生错误。
+                    console.log(error);
+                });
+
+            }]);
+            //3.绑定模块
+            //4.绑定控制器
+
+    </script>
+</head>
+<body ng-app="app" ng-controller="xmgController">
+    <p>{{res}}</p>
+</body>
+</html>

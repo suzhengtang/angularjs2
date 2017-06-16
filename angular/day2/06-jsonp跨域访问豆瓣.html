@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script>
+
+        /*1.什么是同源？
+            协议 主机地址 端口号  三者一致
+            http://www.baidu.com:8080/index.html      www.baidu.com  -> 130.150.192.168
+            http://www.baidu.com:8080/test.html
+
+            与上面是不同源。
+            http://m.baidu.com:8080/test.html
+
+
+        * 2.什么是跨域？
+            在一个网站当中，如何网络请求的数据跟当前网站不同源(其它的网站)，就会造成跨域。
+            http://www.baidu.com:8080
+            http://www.360.com
+            没有办法直接使用Ajax发送请求。  使用Ajax发送请求获取不到数据。
+        *
+        * 3.为什么会有跨域？
+            为了保证网站安全考虑，才有跨域
+
+        * 4.是谁造成了跨域？
+            是浏览器造成。数据其实已经到了浏览器当中，只不过浏览器它没有给你。
+
+        * 5.如何解决跨域？
+           1.不使用Ajax发送请求 使用jsonp解决方案。
+           2.安装一个插件。
+           3.让服务器允许跨域。
+
+        * 6.jsonp与Ajax有关系嘛？
+            jsonp:跨域的解决方法
+            Ajax：异步网络请求的一种技术。
+
+        * 7.简述一下jsonp方案的实现原理？
+            通过html标签的src属性进行发送请求。
+            服务器返回的js代码，可以被浏览器直接执行。
+        * */
+
+        function test(args) {
+          console.log(args);
+        }
+
+    </script>
+
+    <script src="https://api.douban.com/v2/book/1220562?callback=test"></script>
+
+</head>
+
+<body ng-app="app" ng-controller="xmgController">
+
+</body>
+
+</html>
